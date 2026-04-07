@@ -1,0 +1,12 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        frequencies = {}
+        for num in nums:
+            frequencies[num] = frequencies.get(num, 0) + 1
+        sorted_freq = dict(sorted(frequencies.items(), key=lambda item: item[1], reverse=True))
+        res = []
+        for key in islice(sorted_freq, k):
+            res.append(key)
+        
+
+        return res
